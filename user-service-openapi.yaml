@@ -1,0 +1,18 @@
+openapi: 3.0.0
+info:
+  title: User Service API
+servers:
+  - url: http://userservice.com
+paths:
+  /users:
+    get:
+      summary: Returns a list of users.
+    post:
+      summary: Create a new user.
+  /users/{userId}:
+    get:
+      summary: Return the user of id {userId}
+    put:
+      summary: Update data of user {userId}
+    delete:
+      summary: Delete user of id {userId}

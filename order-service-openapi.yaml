@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  title: Order Service API
+servers:
+  - url: http://orderservice.com
+paths:
+  /orders:
+    get:
+      summary: Returns a list of orders.
+    post:
+      summary: Create a new order.
+  /orders/{orderId}:
+    get:
+      summary: Return the order of id {orderId}
+    put:
+      summary: Update data of order {orderId}

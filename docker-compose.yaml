@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  users-db:
+    image: mongo:4.2-bionic
+  
+  orders-db:
+    image: postgres:12
+
+  payments-db:
+    image: mysql:latest
+
+  catalog-db:
+    image: mariadb:latest
+
+  search-db:
+    image: mongo:4.2-bionic
+
+  user-service:
+    build: user-service/.
+    depends_on:
+      - users-db
+
+  catalog-service:
+    build: catalog-service/.
+    depends_on:
+      - catalog-db
+
+  search-service:
+    build: search-service/.
+    depends_on:
+      - search-db
+
+  order-service:
+    build: order-service/.
+    depends_on:
+      - orders-db
+
+  payment-service:
+    build: payment-service/.
+    depends_on:
+      - payments-db
+
+  notification-service:
+    build: notification-service/.
+
+  
